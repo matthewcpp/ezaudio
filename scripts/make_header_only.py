@@ -14,6 +14,7 @@ def main():
 		output_file.write("\n#ifdef EZAUDIO_IMPLEMENTATION\n")
 		add_source_file(os.path.join(src_folder, "common.cpp"), None, output_file)
 		add_source_file(os.path.join(src_folder, "wsapi.cpp"), "_WIN32", output_file)
+		add_source_file(os.path.join(src_folder, "coreaudio.cpp"), "__APPLE__", output_file)
 		output_file.write("\n#endif\n")
 	return 0
 
