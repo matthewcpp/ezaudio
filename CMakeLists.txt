@@ -13,10 +13,17 @@ set(common_src include/ezaudio/ez_audio.h src/common.cpp)
 if (WIN32)
     set(platform_src src/wsapi.cpp)
     set(platform_libs setupapi.lib winmm.lib imm32.lib version.lib)
+elseif(MACOS)
+    set(platform_src src/coreaudio.cpp)
+    set(platform_libs "-framework AudioToolbox")
 endif()
 
 add_library(ezaudio STATIC ${common_src} ${platform_src})
 target_include_directories(ezaudio PUBLIC include)
+
+set_target_properties(ezaudio PROPERTIES 
+    CXX_STANDARD 11
+    CXX_STANDARD_REQUIRED ON)
 
 if (BUILD_TEST)
     message("Configuring test application.")
