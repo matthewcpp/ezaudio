@@ -10,18 +10,15 @@ typedef struct {
     int frequency;
     ez_audio_render_callback render_callback;
     void* user_data;
-} tiny_audio_params;
+} ez_audio_params;
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-    void ez_audio_init_params(tiny_audio_params* params);
+    void ez_audio_init_params(ez_audio_params* params);
 
-    void ez_audio_init();
-    void ez_audio_uninit();
-
-    ez_audio_session* ez_audio_create(tiny_audio_params* params);
+    ez_audio_session* ez_audio_create(ez_audio_params* params);
 
     int ez_audio_start(ez_audio_session* session);
     void ez_audio_destroy(ez_audio_session* session);
