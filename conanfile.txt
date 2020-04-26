@@ -1,0 +1,6 @@
+[requires]
+TinySoundFont/21c07c0@matthewcpp/master
+
+[generators]
+cmake_find_package
+cmake_paths

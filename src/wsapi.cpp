@@ -16,18 +16,8 @@ const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
 const IID IID_IAudioClient = __uuidof(IAudioClient);
 const IID IID_IAudioRenderClient = __uuidof(IAudioRenderClient);
 
-void ez_audio_init()
-{
-
-}
-
-void ez_audio_uninit()
-{
-
-}
-
 struct ez_audio_session {
-    tiny_audio_params params;
+    ez_audio_params params;
 
     IMMDeviceEnumerator* deviceEnumerator = nullptr;
     IAudioClient* audioClient = nullptr;
@@ -42,7 +32,7 @@ struct ez_audio_session {
     std::mutex mutex;
 };
 
-ez_audio_session* ez_audio_create(tiny_audio_params* params)
+ez_audio_session* ez_audio_create(ez_audio_params* params)
 {
     auto session = new ez_audio_session();
     session->processAudio = false;
