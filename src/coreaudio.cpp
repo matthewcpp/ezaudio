@@ -28,9 +28,9 @@ void coreaudio_callback(void* user_data, AudioQueueRef queue, AudioQueueBufferRe
 {
     auto session = reinterpret_cast<ez_audio_session*>(user_data);
     
-    session->params.render_callback(buffer->mAudioData, buffer->mAudioDataBytesCapacity, buffer->mAudioDataBytesCapacity / 8, session->params.user_data);
+    uint32_t bytesWritten = session->params.render_callback(buffer->mAudioData, buffer->mAudioDataBytesCapacity, buffer->mAudioDataBytesCapacity / 8, session->params.user_data);
     
-    buffer->mAudioDataByteSize = buffer->mAudioDataBytesCapacity;
+    buffer->mAudioDataByteSize = bytesWritten;
     AudioQueueEnqueueBuffer( queue, buffer, 0, 0 );
 }
 

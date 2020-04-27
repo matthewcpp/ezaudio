@@ -13,10 +13,11 @@
 #define STR(x) #x
 #define TO_STR(x) STR(x)
 
-void audio_callback(void* buffer, uint32_t buffer_size, uint32_t sample_count, void* user_data)
+uint32_t audio_callback(void* buffer, uint32_t buffer_size, uint32_t sample_count, void* user_data)
 {
 	tsf* soundfont = reinterpret_cast<tsf*>(user_data);
 	tsf_render_float(soundfont, reinterpret_cast<float*>(buffer), sample_count, 0);
+    return buffer_size;
 }
 
 int main(int argc, char** argv)

@@ -1,10 +1,11 @@
-#include <cstdint>
-
 #ifndef EZ_AUDIO_H
 #define EZ_AUDIO_H
+
+#include <cstdint>
+
 typedef struct ez_audio_session ez_audio_session;
 
-typedef void(*ez_audio_render_callback)(void* buffer_data, uint32_t buffer_data_size, uint32_t sample_count, void* user_data);
+typedef uint32_t(*ez_audio_render_callback)(void* buffer_data, uint32_t buffer_data_size, uint32_t sample_count, void* user_data);
 
 typedef struct {
     int frequency;
