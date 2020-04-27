@@ -1,7 +1,7 @@
 #define TSF_IMPLEMENTATION
 #include "tsf.h"
 
-#include "ezaudio/ez_audio.h"
+#include "ezaudio/ezaudio.h"
 
 #include <cstdint>
 #include <iostream>
@@ -17,7 +17,7 @@ uint32_t audio_callback(void* buffer, uint32_t buffer_size, uint32_t sample_coun
 {
 	tsf* soundfont = reinterpret_cast<tsf*>(user_data);
 	tsf_render_float(soundfont, reinterpret_cast<float*>(buffer), sample_count, 0);
-    return buffer_size;
+	return buffer_size;
 }
 
 int main(int argc, char** argv)

@@ -4,7 +4,7 @@ import re
 
 def main():
 	script_dir = os.path.dirname(os.path.realpath(__file__))
-	header_path = os.path.join(script_dir, "..", "include", "ezaudio", "ez_audio.h")
+	header_path = os.path.join(script_dir, "..", "include", "ezaudio", "ezaudio.h")
 	src_folder = os.path.join(script_dir, "..", "src")
 
 	with open(sys.argv[1], 'w') as output_file:
@@ -28,7 +28,7 @@ def add_source_file(source_path, guard, output_file):
 	stripped_include = False
 	with open(source_path, 'r') as source_file:
 		for line in source_file.readlines():
-			if not stripped_include and re.match('\s*#\s*include\s*"ezaudio/ez_audio.h"\s*', '#include "ezaudio/ez_audio.h"'):
+			if not stripped_include and re.match('\s*#\s*include\s*"ezaudio/ezaudio.h"\s*', line):
 				stripped_include = True
 			else:
 				output_file.write(line)

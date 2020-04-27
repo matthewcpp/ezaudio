@@ -1,5 +1,5 @@
-#ifndef EZ_AUDIO_H
-#define EZ_AUDIO_H
+#ifndef EZAUDIO_H
+#define EZAUDIO_H
 
 #include <cstdint>
 

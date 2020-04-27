@@ -1,4 +1,4 @@
-#include "ezaudio/ez_audio.h"
+#include "ezaudio/ezaudio.h"
 
 #include <initguid.h>
 #include <mmdeviceapi.h>

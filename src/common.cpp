@@ -1,4 +1,4 @@
-#include "ezaudio/ez_audio.h"
+#include "ezaudio/ezaudio.h"
 
 void ez_audio_init_params(ez_audio_params* params)
 {

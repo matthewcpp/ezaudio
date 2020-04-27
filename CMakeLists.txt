@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.0)
 
 project(ezaudio)
 
-option(BUILD_TEST "Builds the test application.  Requires the use of conan to pull TinySoundFont." OFF)
+option(BUILD_TEST "Builds the test application.  Requires the use of conan to pull TinySoundFont." ON)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(MACOS TRUE)
 endif()
 
-set(common_src include/ezaudio/ez_audio.h src/common.cpp)
+set(common_src include/ezaudio/ezaudio.h src/common.cpp)
 
 if (WIN32)
     set(platform_src src/wsapi.cpp)
