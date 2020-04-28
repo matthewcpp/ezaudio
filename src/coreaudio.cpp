@@ -72,7 +72,7 @@ int ez_audio_start(ez_audio_session* session)
 
 void ez_audio_destroy(ez_audio_session* session)
 {
-    if (session->queue)
+    if (!session->queue)
         return;
 
     AudioQueueStop(session->queue, true);
